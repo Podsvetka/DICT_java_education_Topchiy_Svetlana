@@ -23,6 +23,12 @@ public class ChatBot {
         int userAge = ((remainder3 * 70 + remainder5 * 21 + remainder7 * 15) % 105);
 
         System.out.println("Your age is " + userAge + "; That's good time to start programming!");
+        System.out.println("Now I will prove to you that I can count to any number you want.");
+
+        int counter = scanner.nextInt();
+        for (int a = 0; a < counter + 1; a++) {
+            System.out.println(a + " !");
+        }
 
     }
 }
