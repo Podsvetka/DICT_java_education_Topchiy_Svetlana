@@ -2,12 +2,14 @@ package scr;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Hangman {
     public static void main(String[] args) {
         System.out.println("HANGMAN");
         Scanner in = new Scanner(System.in);
+        String[] alphabet = new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","q","r","s","t","u","v","w","x","y","z"};
         ArrayList<Character> letters = new ArrayList<>();
         String[] words = {"python", "java", "javascript", "kotlin"};
         Random r = new Random();
@@ -43,14 +45,21 @@ public class Hangman {
             }
             System.out.println("\n" + "Input a letter:");
             String letter = in.next();
+            if (letter.length()>1){
+                System.out.println("You should input a single letter.");
+                continue;
+            }
+            if(!Arrays.asList(alphabet).contains(letter)){
+                System.out.println("Please enter a lowercase English letter.");
+                continue;
+            }
             if (random_word.contains(letter)) {
                 for (int i = 0; i < letters.size(); i++) {
                     if (letters.get(i).toString().equals("-")) {
                         letters.set(i, letter.charAt(0));
                         break;
                     } else if (letters.get(i).toString().equals(letter)) {
-                        System.out.println("No improvements");
-                        health -= 1;
+                        System.out.println("You've already guessed this letter.");
                         break;
                     }
                 }
