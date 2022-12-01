@@ -1,8 +1,5 @@
 package scr;
-import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 
 public class Hangman {
@@ -12,6 +9,11 @@ public class Hangman {
         String[] alphabet = new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","q","r","s","t","u","v","w","x","y","z"};
         ArrayList<Character> letters = new ArrayList<>();
         String[] words = {"python", "java", "javascript", "kotlin"};
+        System.out.println("Type 'play' to play the game, 'exit' to quit:");
+        String game = in.next();
+        if(Objects.equals(game,"exit")){
+            System.exit(0);
+        }
         Random r = new Random();
         int randomNumber = r.nextInt(words.length);
         int health = 8;
